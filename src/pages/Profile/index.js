@@ -9,6 +9,7 @@ import firebase from '../../services/firebaseConnection';
 import { AuthContext } from '../../contexts/auth';
 
 import { FiSettings, FiUpload } from 'react-icons/fi';
+import { toast } from 'react-toastify';
 
 export default function Profile(){
   const { user, signOut, setUser, storageUser } = useContext(AuthContext);
@@ -61,6 +62,7 @@ export default function Profile(){
           nome: nome
         })
         .then(()=>{
+          toast.success('Perfil salvo com sucesso!');
           let data = {
             ...user,
             avatarUrl: urlFoto,
@@ -88,6 +90,7 @@ export default function Profile(){
         nome: nome
       })
       .then(()=>{
+        toast.success('Perfil salvo com sucesso!');
         let data = {
           ...user,
           nome: nome
